@@ -75,7 +75,7 @@ public class Caixa implements Serializable {
     public void setFuncionarioList(List<Funcionario> funcionarioList) {
         this.funcionarioList = funcionarioList;
     }
-
+a
     @Override
     public int hashCode() {
         int hash = 0;
