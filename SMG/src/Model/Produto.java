@@ -6,7 +6,7 @@
 package Model;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -56,7 +56,7 @@ public class Produto implements Serializable {
         @JoinColumn(name = "idProduto", referencedColumnName = "id")}, inverseJoinColumns = {
         @JoinColumn(name = "idPedido", referencedColumnName = "id")})
     @ManyToMany
-    private Collection<Pedido> pedidoCollection;
+    private List<Pedido> pedidoList;
 
     public Produto() {
     }
@@ -106,12 +106,12 @@ public class Produto implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Pedido> getPedidoCollection() {
-        return pedidoCollection;
+    public List<Pedido> getPedidoList() {
+        return pedidoList;
     }
 
-    public void setPedidoCollection(Collection<Pedido> pedidoCollection) {
-        this.pedidoCollection = pedidoCollection;
+    public void setPedidoList(List<Pedido> pedidoList) {
+        this.pedidoList = pedidoList;
     }
 
     @Override
@@ -136,7 +136,7 @@ public class Produto implements Serializable {
 
     @Override
     public String toString() {
-        return "BD.Produto[ id=" + id + " ]";
+        return "Model.Produto[ id=" + id + " ]";
     }
     
 }

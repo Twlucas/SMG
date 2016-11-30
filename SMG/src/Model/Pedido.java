@@ -6,7 +6,7 @@
 package Model;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -49,8 +49,8 @@ public class Pedido implements Serializable {
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "totalPagamento")
     private Double totalPagamento;
-    @ManyToMany(mappedBy = "pedidoCollection")
-    private Collection<Produto> produtoCollection;
+    @ManyToMany(mappedBy = "pedidoList")
+    private List<Produto> produtoList;
     @JoinColumn(name = "idCliente", referencedColumnName = "id")
     @ManyToOne
     private Cliente idCliente;
@@ -98,12 +98,12 @@ public class Pedido implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Produto> getProdutoCollection() {
-        return produtoCollection;
+    public List<Produto> getProdutoList() {
+        return produtoList;
     }
 
-    public void setProdutoCollection(Collection<Produto> produtoCollection) {
-        this.produtoCollection = produtoCollection;
+    public void setProdutoList(List<Produto> produtoList) {
+        this.produtoList = produtoList;
     }
 
     public Cliente getIdCliente() {
@@ -144,7 +144,7 @@ public class Pedido implements Serializable {
 
     @Override
     public String toString() {
-        return "BD.Pedido[ id=" + id + " ]";
+        return "Model.Pedido[ id=" + id + " ]";
     }
     
 }

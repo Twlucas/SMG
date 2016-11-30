@@ -6,7 +6,7 @@
 package Model;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -53,7 +53,7 @@ public class Funcionario implements Serializable {
     @Column(name = "salario")
     private Double salario;
     @OneToMany(mappedBy = "idFuncionario")
-    private Collection<Pedido> pedidoCollection;
+    private List<Pedido> pedidoList;
     @JoinColumn(name = "idCaixa", referencedColumnName = "id")
     @ManyToOne
     private Caixa idCaixa;
@@ -106,12 +106,12 @@ public class Funcionario implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Pedido> getPedidoCollection() {
-        return pedidoCollection;
+    public List<Pedido> getPedidoList() {
+        return pedidoList;
     }
 
-    public void setPedidoCollection(Collection<Pedido> pedidoCollection) {
-        this.pedidoCollection = pedidoCollection;
+    public void setPedidoList(List<Pedido> pedidoList) {
+        this.pedidoList = pedidoList;
     }
 
     public Caixa getIdCaixa() {
@@ -144,7 +144,7 @@ public class Funcionario implements Serializable {
 
     @Override
     public String toString() {
-        return "BD.Funcionario[ id=" + id + " ]";
+        return "Model.Funcionario[ id=" + id + " ]";
     }
     
 }
